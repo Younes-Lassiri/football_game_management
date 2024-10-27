@@ -1,8 +1,9 @@
 import React from "react";
+import Hero from "./Home/Hero/Hero";
 function App() {
   return (
     <div className="app">
-      from younes
+      <Hero/>
     </div>
   );
 }
