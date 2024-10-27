@@ -1,0 +1,80 @@
+.main-goals-section {
+    width: 100%;
+    padding: 60px 0;
+    background-color: #01031c1a;
+    background-image: url('https://footyaddicts.com/vite/assets/pattern-light-tTCibsJo.svg');
+    background-position: center;
+    background-size: cover;
+    box-sizing: border-box;
+}
+.main-goals-section h1
+{
+    color: var(--main-color);
+    font-size: 47px;
+    font-weight: 700;
+    font-family: var(--font-family);
+    text-align: center;
+}
+.main-goals-section-items
+{
+    padding: 50px 0 0 0;
+    width: 90%;
+    margin: 0 auto;
+    display: grid;
+    grid-template-columns: 1fr 1fr 1fr;
+}
+.main-goals-section-items-item
+{
+    padding: 80px 40px 0 0;
+    width: 100%;
+    display: flex;
+    flex-direction: column;
+    align-items: start;
+    justify-content: start;
+    gap: 25px;
+    box-sizing: border-box;
+    margin: 0;
+}
+.goals-one
+{
+    border-top: 14px solid #eef0fc;
+}
+.goals-two
+{
+    border-top: 14px solid #cf002b;
+}
+.goals-three
+{
+    border-top: 14px solid #2130ad;
+}
+.main-goals-section-items-item h1
+{
+    color: var(--main-color);
+    font-size: 35px;
+    font-weight: 700;
+    font-family: var(--font-family);
+}
+.main-goals-section-items-item p
+{
+    color: var(--main-color);
+    font-size: 15px;
+    font-weight: 400;
+    line-height: 1.6rem;
+    font-family: var(--font-family);
+}
+@media only screen and (max-width: 768px)
+{
+    .main-goals-section-items
+    {
+        grid-template-columns: 1fr;
+        grid-gap: 20px;
+    }
+    .main-goals-section h1
+    {
+        font-size: 35px;
+    }
+    .main-goals-section-items-item
+    {
+        padding: 50px 20px 0 0;
+    }
+}
