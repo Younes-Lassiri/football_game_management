@@ -1,8 +1,9 @@
 import React from "react";
+import Featured from "./Featured/Featured";
 function App() {
   return (
     <div className="app">
-      from younes
+      <Featured/>
     </div>
   );
 }
