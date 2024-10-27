@@ -71,7 +71,7 @@
     {
         grid-template-columns: 1fr;
         grid-gap: 55px;
-        padding: 0 25px;
+        padding: 0 25px 25px 25px;
     }
     .main-info-section-left h1
     {

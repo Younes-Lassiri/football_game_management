@@ -1,6 +1,7 @@
 import React from "react";
 import Faqs from "./Faqs/Faqs";
 import Featured from "./Featured/Featured";
+import Footer from "./Footer/Footer";
 import Goals from "./Goals/Goals";
 import Info from "./Info/Info";
 import Reviews from "./Reviews/Reviews";
@@ -18,6 +19,7 @@ function App() {
       <Goals/>
       <Faqs/>
       <Info/>
+      <Footer/>
     </div>
   );
 }
