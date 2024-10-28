@@ -9,7 +9,7 @@ import Reviews from "./Reviews/Reviews";
 import Stadiums from "./Stadiums/Stadiums";
 import Stats from "./Stats/Stats";
 import Steps from "./Steps/Steps";
-
+import 'boxicons';
 function App() {
   return (
     <div className="app">
