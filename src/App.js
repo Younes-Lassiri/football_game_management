@@ -10,19 +10,30 @@ import Stadiums from "./Stadiums/Stadiums";
 import Stats from "./Stats/Stats";
 import Steps from "./Steps/Steps";
 import 'boxicons';
+import { BrowserRouter, Route, Routes } from "react-router-dom";
+import Play from "./Play/Play";
 function App() {
   return (
     <div className="app">
-      <Hero />
-      <Featured />
-      <Stats />
-      <Stadiums />
-      <Steps />
-      <Reviews />
-      <Goals />
-      <Faqs />
-      <Info />
-      <Footer />
+      <BrowserRouter>
+        <Routes>
+          <Route path='/' element={(
+            <>
+              <Hero />
+              <Featured />
+              <Stats />
+              <Stadiums />
+              <Steps />
+              <Reviews />
+              <Goals />
+              <Faqs />
+              <Info />
+              <Footer />
+            </>
+          )}/>
+          <Route path="/pages/play" element={<Play/>}/>
+        </Routes>
+      </BrowserRouter>
     </div>
   );
 }

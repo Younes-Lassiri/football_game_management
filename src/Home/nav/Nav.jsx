@@ -2,7 +2,7 @@ import React, { useState } from 'react';
 import { navLinks } from './navLinks';
 import { FaBars } from 'react-icons/fa';
 import { BiX } from 'react-icons/bi';
-
+import { Link } from 'react-router-dom';
 const Nav = () => {
   const [isMobileMenuOpen, setIsMobileMenuOpen] = useState(false);
   return (
@@ -10,9 +10,40 @@ const Nav = () => {
       {/* Large screens */}
       <div className='hidden md:flex justify-between px-[50px] items-center h-[72px]'>
         <div>Yallah9asser</div>
+        <div>
+          <ul className='flex gap-[35px] items-center justify-center list-none'>
+            <li>
+              <Link to='/' className='text-[#01031e] text-[15px] font-semibold transition-colors duration-300 hover:text-[#d1002a]'>
+                Home
+              </Link>
+            </li>
+            <li>
+              <a href='#' className='text-[#01031e] text-[15px] font-semibold transition-colors duration-300 hover:text-[#d1002a]'>
+                About
+              </a>
+            </li>
+            <li>
+              <Link to='/pages/play' className='text-[#01031e] text-[15px] font-semibold transition-colors duration-300 hover:text-[#d1002a]'>
+              Play Football
+              </Link>
+            </li>
+            <li>
+              <a href='#' className='text-[#01031e] text-[15px] font-semibold transition-colors duration-300 hover:text-[#d1002a]'>
+                Impact
+              </a>
+            </li>
+            <li>
+              <a href='#' className='text-[#01031e] text-[15px] font-semibold transition-colors duration-300 hover:text-[#d1002a]'>
+                Contact
+              </a>
+            </li>
+          </ul>
+        </div>
         <div className='space-x-5'>
         <button className='p-2 px-[16px] rounded-[4px] font-medium text-[14px]' style={{ color: '#01031e', backgroundColor: '#eef0fc' }}>Register</button>
-        <button className='bg-red-600 text-white p-2 px-[16px] rounded-[4px] font-medium text-[14px]'>Sign In</button>
+        <button className='bg-[#d1002a] text-white p-2 px-[16px] rounded-[4px] font-medium text-[14px]'>
+          Sign In
+        </button>
         </div>
       </div>
       {/* Small screens */}
