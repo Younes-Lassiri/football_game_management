@@ -24,6 +24,14 @@ body
     padding: 0 0 50px 50px;
     box-sizing: border-box;
 }
+.navbar-header-logo
+{
+    height: 100%;
+    position: relative;
+    display: flex;
+    align-items: center;
+    justify-content: start;
+}
 .main-landing-section .main-landing-section-h1
 {
     color: #eef0fc;
@@ -116,6 +124,10 @@ body
 }
 @media only screen and (max-width: 768px)
 {
+    .navbar-header-logo img
+    {
+        transform: scaleY(0.9);
+    }
     .main-landing-section
     {
         padding: 0 25px 120px 25px;

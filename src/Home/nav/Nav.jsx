@@ -3,13 +3,14 @@ import { navLinks } from './navLinks';
 import { FaBars } from 'react-icons/fa';
 import { BiX } from 'react-icons/bi';
 import { Link } from 'react-router-dom';
+import website_logo from '../../assets/website_logo.png';
 const Nav = () => {
   const [isMobileMenuOpen, setIsMobileMenuOpen] = useState(false);
   return (
     <div>
       {/* Large screens */}
       <div className='hidden md:flex justify-between px-[50px] items-center h-[72px]'>
-        <div>Yallah9asser</div>
+        <div className='navbar-header-logo'><img src={website_logo}/></div>
         <div>
           <ul className='flex gap-[35px] items-center justify-center list-none'>
             <li>
@@ -43,7 +44,7 @@ const Nav = () => {
       </div>
       {/* Small screens */}
       <div className='flex items-center justify-between md:hidden px-[25px] h-[72px]'>
-        <div>Yallah9asser</div>
+        <div className='navbar-header-logo'><img src={website_logo}/></div>
         <button
           onClick={() => setIsMobileMenuOpen(!isMobileMenuOpen)}
           className=' focus:outline-none'
@@ -63,7 +64,6 @@ const Nav = () => {
           )}
         </button>
       </div>
-
       {/* Mobile Menu */}
       {isMobileMenuOpen && (
         <div className='md:hidden mx-4 pb-4'>
