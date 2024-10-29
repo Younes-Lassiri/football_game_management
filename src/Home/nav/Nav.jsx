@@ -18,9 +18,9 @@ const Nav = () => {
               </Link>
             </li>
             <li>
-              <a href='#' className='text-[#01031e] text-[15px] font-semibold transition-colors duration-300 hover:text-[#d1002a]'>
+              <Link to='/pages/about' className='text-[#01031e] text-[15px] font-semibold transition-colors duration-300 hover:text-[#d1002a]'>
                 About
-              </a>
+              </Link>
             </li>
             <li>
               <Link to='/pages/play' className='text-[#01031e] text-[15px] font-semibold transition-colors duration-300 hover:text-[#d1002a]'>
@@ -80,9 +80,9 @@ const Nav = () => {
           <div className='pt-2 flex flex-col space-y-4 font-semibold'>
             {navLinks.map((navLink) => (
               <div key={navLink.id} className='relative group'>
-                <a href={navLink.href} className='hover:text-slate-500'>
+                <Link to={navLink.href} className='hover:text-slate-500'>
                   {navLink.label}
-                </a>
+                </Link>
                 <span className='absolute left-0 bottom-0 h-[2px] w-full bg-black scale-x-0 group-hover:scale-x-100 transition-transform duration-300'></span>
               </div>
             ))}

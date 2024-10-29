@@ -17,6 +17,16 @@
     line-height: 2rem;
     font-family: var(--font-family);
 }
+.main-stats-section p
+{
+    color: #e4e4e7;
+    font-size: 18px;
+    font-weight: 500;
+    padding: 25px 0;
+    text-align: center;
+    line-height: 2rem;
+    font-family: var(--font-family);
+}
 .main-stats-section-stats
 {
     width: 100%;

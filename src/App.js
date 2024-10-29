@@ -12,6 +12,7 @@ import Steps from "./Steps/Steps";
 import 'boxicons';
 import { BrowserRouter, Route, Routes } from "react-router-dom";
 import Play from "./Play/Play";
+import About from "./About/About";
 function App() {
   return (
     <div className="app">
@@ -32,10 +33,10 @@ function App() {
             </>
           )}/>
           <Route path="/pages/play" element={<Play/>}/>
+          <Route path="/pages/about" element={<About/>}/>
         </Routes>
       </BrowserRouter>
     </div>
   );
 }
-
 export default App;
