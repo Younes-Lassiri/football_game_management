@@ -28,14 +28,9 @@ const Nav = () => {
               </Link>
             </li>
             <li>
-              <a href='#' className='text-[#01031e] text-[15px] font-semibold transition-colors duration-300 hover:text-[#d1002a]'>
-                Impact
-              </a>
-            </li>
-            <li>
-              <a href='#' className='text-[#01031e] text-[15px] font-semibold transition-colors duration-300 hover:text-[#d1002a]'>
-                Contact
-              </a>
+              <Link to='/contact' className='text-[#01031e] text-[15px] font-semibold transition-colors duration-300 hover:text-[#d1002a]'>
+              Contact
+              </Link>
             </li>
           </ul>
         </div>
