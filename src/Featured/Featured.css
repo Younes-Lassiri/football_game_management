@@ -1,0 +1,114 @@
+:root {
+    --font-family: "Roboto", sans-serif;
+    --main-color: #01031c;
+    --main-text-color: #e5e5e5;
+}
+.main-featured-section
+{
+    width: 100%;
+    min-height: 100vh;
+    background-color: rgb(255 255 255 / 1);
+    display: flex;
+    flex-direction: column;
+    align-items: start;
+    justify-content: space-between;
+    padding: 40px;
+    box-sizing: border-box;
+    gap: 30px;
+}
+.main-featured-section h2
+{
+    margin: 0 auto;
+    font-size: 24px;
+    font-weight: 400;
+    line-height: 2rem;
+    color: #01031c;
+    font-family: var(--font-family);
+}
+.main-featured-section-brands-logo
+{
+    width: 100%;
+    display: grid;
+    grid-template-columns: 1fr 1fr 1fr 1fr;
+}
+.main-featured-section-brands-logo-item
+{
+    width: 100%;
+    display: flex;
+    align-items: center;
+    justify-content: start;
+}
+.main-featured-section-brands-logo-item img
+{
+    width: 65%;
+}
+.main-featured-section-infos
+{
+    display: flex;
+    flex-direction: column;
+    align-items: start;
+    justify-content: space-between;
+    gap: 50px;
+}
+.main-featured-section-infos h1
+{
+    font-size: 48px;
+    font-weight: 800;
+    line-height: 2rem;
+    color: #01031c;
+    font-family: var(--font-family);
+}
+.main-featured-section-infos p
+{
+    font-size: 22px;
+    font-weight: 400;
+    line-height: 2rem;
+    color: #01031c;
+    font-family: var(--font-family);
+}
+.main-featured-section-infos h4
+{
+    font-size: 24px;
+    font-weight: 500;
+    line-height: 2rem;
+    color: #01031c;
+    font-family: var(--font-family);
+}
+.main-featured-section-infos h4 span
+{
+    cursor: pointer;
+    transition: .4s;
+}
+.main-featured-section-infos h4 span:hover
+{
+    text-decoration: underline;
+}
+@media only screen and (max-width: 768px)
+{
+    .main-featured-section
+    {
+        padding: 40px 15px;
+        height: auto;
+    }
+    .main-featured-section-infos h1
+    {
+        font-size: 40px;
+        line-height: 2.8rem;
+    }
+    .main-featured-section-infos
+    {
+        gap: 30px;
+    }
+    .main-featured-section-brands-logo
+    {
+        padding: 20px 0 0 0;
+    }
+    .main-featured-section-brands-logo-item img
+    {
+        width: 75%;
+    }
+    .main-featured-section-infos p
+    {
+        font-size: 21px;
+    }
+}

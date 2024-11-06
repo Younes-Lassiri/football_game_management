@@ -1,0 +1,146 @@
+.main-stats-section
+{
+    width: 100%;
+    padding: 70px 50px 50px 50px;
+    background-color: #01031c;
+    background-image: url('https://footyaddicts.com/vite/assets/pattern-dark-FfyQ4QSY.svg');
+    background-position: center;
+    background-size: cover;
+    box-sizing: border-box;
+}
+.main-stats-section h1
+{
+    color: #e4e4e7;
+    font-size: 45px;
+    font-weight: 700;
+    text-align: center;
+    line-height: 2rem;
+    font-family: var(--font-family);
+}
+.main-stats-section p
+{
+    color: #e4e4e7;
+    font-size: 18px;
+    font-weight: 500;
+    padding: 25px 0;
+    text-align: center;
+    line-height: 2rem;
+    font-family: var(--font-family);
+}
+.main-stats-section-stats
+{
+    width: 100%;
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    grid-gap: 40px;
+}
+.main-stats-section-stats-left
+{
+    padding: 40px 0 0 0;
+    width: 100%;
+    display: flex;
+    flex-direction: column;
+}
+.main-stats-section-stats-right
+{
+    padding: 40px 0 0 0;
+    width: 100%;
+    display: flex;
+    flex-direction: column;
+}
+.main-stats-section-stats-left-h1
+{
+    width: 100%;
+    text-align: center;
+    color: #e4e4e7;
+    font-size: 24px;
+    font-weight: 400;
+    text-align: center;
+    line-height: 2rem;
+    font-family: var(--font-family);
+}
+.main-stats-section-stats-left-content
+{
+    width: 100%;
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    padding: 35px 0 0 0;
+}
+.main-stats-section-stats-left-content-one
+{
+    width: 100%;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: space-between;
+    gap: 25px;
+}
+.main-stats-section-stats-left-content-one h1
+{
+    display: flex;
+    gap: 7px;
+    color: #e4e4e7;
+    font-size: 60px;
+    font-weight: 900;
+    text-align: center;
+    font-family: var(--font-family);
+}
+.main-stats-section-stats-left-content-one h1 span
+{
+    color: #cf002b;
+    font-size: 55px;
+}
+.main-stats-section-stats-left-content-one p
+{
+    display: flex;
+    gap: 7px;
+    color: #e4e4e7;
+    font-size: 25px;
+    font-weight: 400;
+    text-align: center;
+    font-family: var(--font-family);
+}
+@media only screen and (max-width: 768px)
+{
+    .main-stats-section h1
+    {
+        font-size: 35px;
+    }
+    .main-stats-section
+    {
+        padding: 40px 0;
+    }
+    .main-stats-section-stats-left-content-one h1 span
+    {
+        font-size: 40px;
+    }
+    .main-stats-section-stats
+    {
+        grid-template-columns: 1fr;
+        grid-gap: 0;
+    }
+    .main-stats-section-stats-left-content-one h1
+    {
+        font-size: 45px;
+    }
+    .main-stats-section-stats-left-content-one
+    {
+        gap: 10px;
+    }
+    .main-stats-section-stats-left-content-one p
+    {
+        font-size: 20px;
+    }
+    .main-stats-section-stats-left-content
+    {
+        padding: 20px 0 0 0;
+    }
+    .main-stats-section-stats-left-h1
+    {
+        font-size: 22px;
+    }
+    .main-stats-section-stats-right
+    {
+        padding: 40px 0 0 0;
+    }
+}
