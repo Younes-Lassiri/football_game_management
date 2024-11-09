@@ -1,25 +1,36 @@
-const express = require('express');
-const bodyParser = require('body-parser');
-const session = require('express-session');
-const cors = require('cors');
-require('dotenv').config();
+import express from 'express';
+import dotenv from 'dotenv';
+import mongoose from 'mongoose';
+import cors from 'cors';
+import authRoutes from './routes/auth.route.js';
+
+dotenv.config();
 
 const app = express();
+
+// Configure CORS
 app.use(cors({
-  origin: 'http://localhost:3000',
-  methods: ['GET', 'POST', 'PUT', 'DELETE', 'OPTIONS'],
-  allowedHeaders: ['Content-Type', 'Authorization'],
+  origin: 'http://localhost:3000', // Allow only this origin
+  methods: ['GET', 'POST', 'PUT', 'DELETE', 'PATCH', 'OPTIONS'], // Allow all methods
+  credentials: true // Enable cookies if needed
 }));
-app.use(bodyParser.json());
-const db = require('./db');
-app.use(session({
-  secret: process.env.SESSION_SECRET,
-  resave: false,
-  saveUninitialized: true,
-}));
-const authRoutes = require('./routes/authRoutes');
-app.use('/auth', authRoutes);
-const PORT = process.env.PORT || 4000;
+
+app.use(express.json());
+
+// Connect to MongoDB
+const connectDB = async () => {
+  try {
+    await mongoose.connect(process.env.DATABASE_URL);
+    console.log('MongoDB connected');
+  } catch (err) {
+    console.error('MongoDB connection error', err);
+  }
+};
+
+app.use('/api/auth', authRoutes);
+
+const PORT = 8000;
 app.listen(PORT, () => {
-  console.log(`Server running on http://localhost:${PORT}`);
+  connectDB();
+  console.log(`Server is running on port ${PORT}`);
 });

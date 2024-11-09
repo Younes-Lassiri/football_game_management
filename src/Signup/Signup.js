@@ -2,7 +2,7 @@ import React from "react";
 import { useFormik } from "formik";
 import * as Yup from "yup";
 import axios from "axios";
-import { GoogleLogin } from 'react-google-login';
+import { Link } from "react-router-dom";
 import "./Signup.css";
 export default function Signup() {
   const formik = useFormik({
@@ -39,7 +39,7 @@ export default function Signup() {
     }),
     onSubmit: async (values) => {
       try {
-        const response = await axios.post("http://localhost:4000/auth/signup", values);
+        const response = await axios.post("http://localhost:8000/api/auth/register", values);
         console.log("Signup successful:", response.data);
       } catch (error) {
         if (error.response) {
@@ -50,20 +50,6 @@ export default function Signup() {
       }
     },
   });
-  const responseGoogle = (response) => {
-    if (response.error) {
-      console.error('Google Sign In Error:', response.error);
-    } else {
-      const token = response.tokenId;
-      axios.post('http://localhost:4000/auth/google', { token })
-        .then((res) => {
-          console.log('User signed up successfully:', res.data);
-        })
-        .catch((err) => {
-          console.error('Error signing up user:', err);
-        });
-    }
-  };
   return (
     <div className="main-signup-section">
       <div className="main-signup-section-one">
@@ -147,15 +133,8 @@ export default function Signup() {
           </div>
           <h5>Already have an account?</h5>
           <div className="main-signup-section-one-button-login">
-            <button type="button">Log in</button>
+            <Link to='/users/login'><button type="button">Log in</button></Link>
           </div>
-          <GoogleLogin
-            clientId={process.env.REACT_APP_GOOGLE_CLIENT_ID}
-            buttonText="Sign up with Google"
-            onSuccess={responseGoogle}
-            onFailure={responseGoogle}
-            redirectUri="http://localhost:3000/auth/google/callback"
-          />
         </form>
       </div>
     </div>

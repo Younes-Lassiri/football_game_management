@@ -15,6 +15,8 @@ import Play from "./Play/Play";
 import About from "./About/About";
 import Contact from "./Contact/Contact";
 import Signup from "./Signup/Signup";
+import Login from "./Login/Login";
+import Dashboard from "./Dashboard/Dashboard";
 function App() {
   return (
     <div className="app">
@@ -38,6 +40,8 @@ function App() {
           <Route path="/pages/about" element={<About/>}/>
           <Route path="/contact" element={<Contact/>}/>
           <Route path="/users/sign_up" element={<Signup/>}/>
+          <Route path="/users/login" element={<Login/>}/>
+          <Route path="/user/dashboard" element={<Dashboard/>}/>
         </Routes>
       </BrowserRouter>
     </div>
