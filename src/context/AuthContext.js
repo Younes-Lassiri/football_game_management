@@ -5,7 +5,6 @@ export const AuthContext = createContext();
 export const AuthProvider = ({ children }) => {
   const [user, setUser] = useState(null);
   const [isAuthenticated, setIsAuthenticated] = useState(false);
-  const [hasJustLoggedIn, setHasJustLoggedIn] = useState(false);
   useEffect(() => {
     const handleStorageChange = () => {
       fetchUser();
@@ -47,7 +46,6 @@ export const AuthProvider = ({ children }) => {
         const { token } = response.data;
         sessionStorage.setItem("token", token);
         await fetchUser();
-        setHasJustLoggedIn(true);
         return { success: true };
       }
     } catch (error) {
@@ -80,7 +78,6 @@ export const AuthProvider = ({ children }) => {
       return { success: false, message: "An error occurred. Please try again later." };
     }
   };
-  
   const updatePassword = async (email, token, newPassword) => {
     try {
       const response = await axios.post("http://localhost:8000/api/auth/reset-password", { email, token, newPassword });
@@ -102,10 +99,8 @@ export const AuthProvider = ({ children }) => {
       return { success: false, message: "An error occurred. Please try again later." };
     }
   };
-  
-  
   return (
-    <AuthContext.Provider value={{ user, isAuthenticated, login, logout, resetPassword, updatePassword, hasJustLoggedIn }}>
+    <AuthContext.Provider value={{ user, isAuthenticated, login, logout, resetPassword, updatePassword }}>
       {children}
     </AuthContext.Provider>
   );

@@ -7,7 +7,7 @@ import { useNavigate } from "react-router-dom";
 import { AuthContext } from "../context/AuthContext";
 import { useLocation } from 'react-router-dom';
 export default function Login() {
-    const { isAuthenticated, login, hasJustLoggedIn } = useContext(AuthContext);
+    const { isAuthenticated, login } = useContext(AuthContext);
     const navigate = useNavigate();
     const location = useLocation();
     const message = location.state?.message;
