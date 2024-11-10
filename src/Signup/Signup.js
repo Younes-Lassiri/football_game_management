@@ -40,7 +40,6 @@ export default function Signup() {
     onSubmit: async (values) => {
       try {
         const response = await axios.post("http://localhost:8000/api/auth/register", values);
-        console.log("Signup successful:", response.data);
       } catch (error) {
         if (error.response) {
           console.error("Error:", error.response.data);

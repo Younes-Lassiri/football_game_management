@@ -17,6 +17,9 @@ import Contact from "./Contact/Contact";
 import Signup from "./Signup/Signup";
 import Login from "./Login/Login";
 import Dashboard from "./Dashboard/Dashboard";
+import ResetPassword from "./ResetPassword/ResetPassword";
+import EditPassword from "./ResetPassword/EditPassword";
+import ProtectedRoute from "./ResetPassword/ProtectedRoute";
 function App() {
   return (
     <div className="app">
@@ -42,6 +45,8 @@ function App() {
           <Route path="/users/sign_up" element={<Signup/>}/>
           <Route path="/users/login" element={<Login/>}/>
           <Route path="/user/dashboard" element={<Dashboard/>}/>
+          <Route path="/users/password/new" element={<ResetPassword/>}/>
+          <Route path="/users/password/edit" element={<ProtectedRoute element={<EditPassword />} />}/>
         </Routes>
       </BrowserRouter>
     </div>

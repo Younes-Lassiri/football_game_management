@@ -39,9 +39,11 @@ const Nav = () => {
         <Link to='/users/sign_up'>
         <button className='p-2 px-[16px] rounded-[4px] font-medium text-[14px]' style={{ color: '#01031e', backgroundColor: '#eef0fc' }}>Register</button>
         </Link>
+        <Link to='/users/login'>
         <button className='bg-[#d1002a] text-white p-2 px-[16px] rounded-[4px] font-medium text-[14px]'>
           Sign In
         </button>
+        </Link>
         </div>
       </div>
       {/* Small screens */}
@@ -70,8 +72,12 @@ const Nav = () => {
       {isMobileMenuOpen && (
         <div className='md:hidden mx-4 pb-4'>
           <div className='flex flex-col font-semibold rounded-md gap-2 py-3'>
+          <Link to='/users/sign_up'>
           <button className='py-2 px-[16px] rounded-[4px] font-medium text-[14px]' style={{ color: '#01031e', backgroundColor: '#eef0fc' }}>Register</button>
-        <button className='bg-red-600 text-white py-2 px-[16px] rounded-[4px] font-medium text-[14px]'>Sign In</button>
+          </Link>
+          <Link to='/users/login'>
+          <button className='bg-red-600 text-white py-2 px-[16px] rounded-[4px] font-medium text-[14px]'>Sign In</button>
+          </Link>
           </div>
 
           <div className='pt-2 flex flex-col space-y-4 font-semibold'>

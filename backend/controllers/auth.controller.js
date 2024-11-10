@@ -112,7 +112,6 @@ export const verifyEmail = async (req, res) => {
 export const forgotPassword = async (req, res) => {
   const { email } = req.body;
 
-  // Find user by email
   const user = await prisma.user.findUnique({
     where: { email },
   });
@@ -121,31 +120,58 @@ export const forgotPassword = async (req, res) => {
     return res.status(400).json({ error: 'User not found' });
   }
 
-  // Generate password reset token
-  const resetToken = generatePasswordResetToken();
+  const currentTime = new Date();
+  const oneHourAgo = new Date(currentTime.getTime() - 3600000);
+  if (!user.verificationToken || user.tokenExpiry < oneHourAgo) {
+    const resetToken = generatePasswordResetToken();
+
+    try {
+      await prisma.user.update({
+        where: { email },
+        data: {
+          verificationToken: resetToken,
+          tokenExpiry: new Date(currentTime.getTime() + 3600000),
+        },
+      });
+      const resetLink = `${process.env.FRONTEND_URL}/users/password/edit?reset-password_token=${resetToken}&email=${email}`;
+      const subject = 'Password Reset Request';
+      const text = `Click on the following link to reset your password: ${resetLink}`;
+      const html = `<p>Click on the following link to reset your password:</p><a href="${resetLink}">${resetLink}</a>`;
+      await sendEmail(email, subject, text, html);
+
+      return res.status(200).json({ message: 'Password reset email sent' });
+    } catch (error) {
+      console.error("Error sending password reset email:", error);
+      return res.status(500).json({ error: 'Error sending password reset email' });
+    }
+  } else {
+    return res.status(405).json({ error: 'Password reset email already sent recently. Please try again later.' });
+  }
+};
+
+
+export const checkResetToken = async (req, res) => {
+  const { resetPasswordToken, email } = req.body;
 
   try {
-    // Store the reset token and expiry date (1 hour)
-    await prisma.user.update({
+    const user = await prisma.user.findUnique({
       where: { email },
-      data: {
-        verificationToken: resetToken,  // Reuse verificationToken for reset
-        tokenExpiry: new Date(Date.now() + 3600000),  // 1 hour expiry
-      },
     });
 
-    // Send password reset email
-    const resetLink = `${process.env.FRONTEND_URL}/reset-password?token=${resetToken}&email=${email}`;
-    const subject = 'Password Reset Request';
-    const text = `Click on the following link to reset your password: ${resetLink}`;
-    const html = `<p>Click on the following link to reset your password:</p><a href="${resetLink}">${resetLink}</a>`;
+    if (user) {
+      const tokenExpiry = new Date(user.tokenExpiry);
+      const now = new Date();
 
-    await sendEmail(email, subject, text, html);
+      if (user.verificationToken === resetPasswordToken && now <= tokenExpiry) {
+        return res.status(200).json({ isValid: true });
+      }
+    }
+    
+    return res.status(200).json({ isValid: false });
 
-    return res.status(200).json({ message: 'Password reset email sent' });
   } catch (error) {
-    console.error(error);
-    return res.status(500).json({ error: 'Error sending password reset email' });
+    console.error("Error verifying token", error);
+    return res.status(500).json({ isValid: false });
   }
 };
 

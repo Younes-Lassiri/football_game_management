@@ -97,6 +97,41 @@
     font-weight: 400;
     font-family: var(--font-family);
 }
+.main-signup-section-one-span
+{
+    width: 95%;
+    margin: 0 auto;
+    color: #333333;
+    font-size: 12px;
+    font-weight: 400;
+    font-family: var(--font-family);
+}
+.main-signup-section-one-options
+{
+    width: 95%;
+    margin: 0 auto;
+    display: flex;
+    flex-direction: column;
+    align-items: start;
+    justify-content: center;
+    gap: 5px;
+}
+.error-messag
+{
+    color: red;
+}
+.main-signup-section-one-options a
+{
+    color: #1ccacc;
+    font-size: 12px;
+    font-weight: 400;
+    font-family: var(--font-family);
+    transition: .5s;
+}
+.main-signup-section-one-options a:hover
+{
+    color: #337ab7;
+}
 .main-signup-section-one .password-rules
 {
     color: #a1a8ac;
